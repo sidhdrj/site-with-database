@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/main_nav.ejs'); %>
+
+<main class="container">
+  <!-- message Area -->
+  <% if (messages.length > 0) { %>
+  <div class="alert alert-danger">
+    <%= messages %>
+  </div>
+  <% } %>
+  <div class="row">
+    <div class="offset-md-90 col-md-90">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title mb-4">Login</h1>
+          <form method="POST" autocomplete="off">
+            <fieldset class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" name="username" placeholder="Enter username" id="username" required autofocus>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" name="password" placeholder="Enter password" id="password" required>
+              <small class="form-text text-muted mb-3">
+                <a href="/register">Don't have an account? Register here</a>
+              </small>
+            </fieldset>
+            <fieldset class="form-group text-right">
+              <button type="submit" class="btn btn-primary mr-2">Login</button>
+              <button<a href="/" class="btn btn-secondary">Cancel</a></fieldset></button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/bottom_nav.ejs'); %>
+<%- include('../partials/footer.ejs'); %>

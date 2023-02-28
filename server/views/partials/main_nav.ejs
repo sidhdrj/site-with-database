@@ -1,0 +1,138 @@
+<!-- Name - Anubhav CHAUHAN
+Student-ID - 301309820 -->
+<style>
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.navbar__logo a {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar__menu li:not(:last-child) {
+  margin-right: 20px;
+}
+
+.navbar__menu li a {
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar__menu li a:hover {
+  color: #fbce4a;
+}
+
+.navbar__menu li a:before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fbce4a;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.navbar__menu li a:hover:before {
+  transform: scaleX(1);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__actions a.btn {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.navbar__actions a.btn-primary {
+  background-color: #fbce4a;
+  color: #1a1a1a;
+}
+
+.navbar__actions a.btn-secondary {
+  background-color: #fff;
+  color: #1a1a1a;
+  border: 1px solid #fff;
+  margin-right: 10px; /* add this line */
+  margin-left: 10px;
+}
+
+
+.navbar__actions a.btn:hover {
+  cursor: alias;
+}
+
+.navbar__actions .user-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  justify-content: center; /* add this line */
+}
+
+</style>
+
+<nav class="navbar">
+  <div class="navbar__logo">
+    <a href="/">Anubhav Systems</a>
+  </div>
+  <ul class="navbar__menu">
+    <li class="navbar__menu"><a href="/">Home</a></li>
+    <li class="navbar__menu"><a href="/about">About</a></li>
+    <li class="navbar__menu"><a href="/service">Services</a></li>
+    <li class="navbar__menu"><a href="/project">Projects</a></li>
+    <li class="navbar__menu"><a href="/contact">Contact</a></li>
+    <li class="navbar__menu"><a href="/contactlist">Business Contact</a></li>
+    <%if(typeof displayName =='string' && displayName){%>
+      <li class="navbar__menu"><span class="user-icon"><i class="fas fa-user"></i></span><a href="/contactlist">Welcome, <%=displayName%></a></li>
+      <li class="navbar__menu"><a href="/logout" class="btn btn-secondary">Logout</a></li>
+    <%}else{%>
+      <li class="navbar__menu"><a href="/login" class="btn btn-secondary" class = "user-icon">Login</a></li>
+      <li class="navbar__menu"><a href="/register" class="btn btn-primary">Register</a></li>
+    <%}%>
+  </ul>  
+</nav>

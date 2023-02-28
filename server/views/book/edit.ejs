@@ -1,0 +1,56 @@
+<%-include ('../partials/header.ejs');%>
+<%-include ('../partials/main_nav.ejs');%>
+
+<!--content for the Add page-->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-100 col-md-100">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center"><%= title %></h1>
+                </div>
+                <div class="card-body">
+                    <form class="form" method="POST">
+                        <div class="form-group">
+                            <label for="nameTextField">Book Title</label>
+                            <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Book Title" name="name" value="<%=book.name%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="authorTextField">Author</label>
+                            <input type="text" class="form-control" id="authorTextField" placeholder="Enter the Book's Author" name="author" value="<%=book.author%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publishedTextField">Year</label>
+                            <input type="text" class="form-control" id="publishedTextField" placeholder="Enter the year of publication" name="published" value="<%=book.published%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descriptionTextArea">Description</label>
+                            <textarea type="text" class="form-control" id="descriptionTextArea" placeholder="Enter a brief description of the book" name="description" value="<%=book.description%>" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PriceTextField">Price</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">$</div>
+                                </div>
+                                <input type="number" class="form-control" id="priceTextField" placeholder="Enter the Book's price" name="price" value="<%=book.price%>" required>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Submit</button>
+                            <button class="btn btn-primary" type="submit"><a href="/bookList" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/bottom_nav'); -%>
+<%- include('../partials/footer'); -%>

@@ -1,0 +1,43 @@
+<%-include ('../partials/header.ejs');%>
+<%-include ('../partials/main_nav.ejs');%>
+
+<!--content for the Add page-->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-100 col-md-100">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center"><%= title %></h1>
+                </div>
+                <div class="card-body">
+                    <form class="form" method="POST">
+                        <div class="form-group">
+                            <label for="nameTextField">Name</label>
+                            <input type="text" class="form-control" id="nameTextField" placeholder="Enter the Name" name="name" value="<%=contact.name%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="authorTextField">Author</label>
+                            <input type="text" class="form-control" id="authorTextField" placeholder="Enter the email" name="email" value="<%=contact.email%>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="PriceTextField">Price</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="priceTextField" placeholder="Enter the Number" name="number" value="<%=contact.number%>" required>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-edit"></i> Submit</button>
+                            <button class="btn btn-primary" type="submit"><a href="/contactList" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/bottom_nav'); -%>
+<%- include('../partials/footer'); -%>
