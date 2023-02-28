@@ -12,6 +12,7 @@ let flash = require('connect-flash');
 
 
 let mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 let db=require('./db');
 //point mongoose to the db URI
 mongoose.connect(db.URI);
