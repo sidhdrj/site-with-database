@@ -24,10 +24,8 @@
                     <td class = "text-center col-2"><%=ContactList[count].name%></td>
                     <td class = "text-center col-2"><%=ContactList[count].email%></td>
                     <td class = "text-center col-1"><%=ContactList[count].number%></td>
-                    <%if(typeof displayName =='string' && displayName){%>
                     <td class ="text-center col-1"><a href="/contactList/edit/<%=ContactList[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>Edit</a></td>
                     <td class ="text-center col-1"><a href="/contactList/delete/<%=ContactList[count]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>
-                    <%}%>
                 </tr>
                 <%}%>
             </table>
