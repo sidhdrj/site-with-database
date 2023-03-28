@@ -118,21 +118,10 @@ a {
 
 <nav class="navbar">
   <div class="navbar__logo">
-    <a href="/">Anubhav Systems</a>
+    <a href="/">Value Read</a>
   </div>
   <ul class="navbar__menu">
     <li class="navbar__menu"><a href="/">Home</a></li>
-    <li class="navbar__menu"><a href="/about">About</a></li>
-    <li class="navbar__menu"><a href="/service">Services</a></li>
-    <li class="navbar__menu"><a href="/project">Projects</a></li>
-    <li class="navbar__menu"><a href="/contact">Contact</a></li>
-    <li class="navbar__menu"><a href="/contactlist">Business Contact</a></li>
-    <%if(typeof displayName =='string' && displayName){%>
-      <li class="navbar__menu"><span class="user-icon"><i class="fas fa-user"></i></span><a href="/contactlist">Welcome, <%=displayName%></a></li>
-      <li class="navbar__menu"><a href="/logout" class="btn btn-secondary">Logout</a></li>
-    <%}else{%>
-      <li class="navbar__menu"><a href="/login" class="btn btn-secondary" class = "user-icon">Login</a></li>
-      <li class="navbar__menu"><a href="/register" class="btn btn-primary">Register</a></li>
-    <%}%>
-  </ul>  
+    <li class="navbar__menu"><a href="/contactlist">Books</a></li>
+  </ul>
 </nav>
