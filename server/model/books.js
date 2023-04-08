@@ -1,9 +1,7 @@
 let mongoose = require('mongoose');
-const commentSchema = new mongoose.Schema({
-  text: String,
-  author: String
-});
+const uuid = require('uuid');
 let bookModel = mongoose.Schema({
+    _id: { type: String, default: uuid.v4 },
     name: String,
     author: String,
     published: String,
@@ -17,4 +15,4 @@ let bookModel = mongoose.Schema({
     collection:"books"
 });
 
-module.exports = mongoose.model('book',bookModel);
+module.exports = mongoose.model('Book',bookModel);

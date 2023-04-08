@@ -16,7 +16,7 @@ module.exports.displayBookList = (req, res, next) => {
             title: "Books You Love",
             BookList: bookList,
             displayName: req.user ? req.user.displayName : "",
-            isAdmin: req.user.isAdmin ? req.user.isAdmin : false,
+            isAdmin: req.user ? req.user.isAdmin : false,
           });
         }
       });
@@ -50,7 +50,9 @@ module.exports.processAddPage = (req,res,next)=>{
     }
 
 module.exports.displayEditPage = (req,res,next)=>{
+
             let id = req.params.id;
+            console.log(id);
             Book.findById(id,(err,bookToEdit)=>{
                 if(err)
                 {
@@ -59,6 +61,7 @@ module.exports.displayEditPage = (req,res,next)=>{
                 }
                 else
                 {
+                console.log(bookToEdit);
                     res.render('book/edit',{title:'Edit Book', book: bookToEdit,
                     displayName:req.user ? req.user.displayName:''});
                 }
@@ -66,6 +69,25 @@ module.exports.displayEditPage = (req,res,next)=>{
             });
         }
 
+module.exports.displayViewPage = (req,res,next)=>{
+
+            let id = req.params.id;
+            console.log(id);
+            Book.findById(id,(err,bookToEdit)=>{
+                if(err)
+                {
+                    console.log(err);
+                    res.end(err);
+                }
+                else
+                {
+                console.log(bookToEdit);
+                    res.render('book/view',{title:'View Book', book: bookToEdit,
+                    displayName:req.user ? req.user.displayName:''});
+                }
+
+            });
+        }
 module.exports.processEditPage = (req,res,next)=>{
             let id = req.params.id
             console.log(req.body);
@@ -93,7 +115,7 @@ module.exports.processEditPage = (req,res,next)=>{
 
 module.exports.performDelete= (req,res,next)=>{
             let id = req.params.id;
-            Book.remove({_id:id},(err)=>{
+            Book.findByIdAndDelete({_id:id},(err)=>{
                 if(err)
                 {
                     console.log(err);

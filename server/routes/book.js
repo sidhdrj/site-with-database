@@ -28,8 +28,11 @@ router.post('/add',requireAuth,bookController.processAddPage);
 
 /*GET Route for displaying the Edit page - UPDATE operation*/
 router.get('/edit/:id',requireAuth,bookController.displayEditPage);
+
 /*POST Route for processing the Edit page - UPDATE operation*/
 router.post('/edit/:id',requireAuth,bookController.processEditPage);
 /*GET to perform Deletion - DELETE operation*/
+router.get('/view/:id',requireAuth,bookController.displayViewPage);
+
 router.get('/delete/:id',requireAuth,bookController.performDelete);
 module.exports = router;
