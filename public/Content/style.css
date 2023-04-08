@@ -20,7 +20,12 @@ font-size: 1.67rem;
   line-height: 3.11rem;
   color: #000;
 }
-
+.star {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  filter: goldenscale(100%);
+}
 .blog_post {
   background: #fff;
   max-width: 29%;

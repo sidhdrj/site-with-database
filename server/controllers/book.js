@@ -8,13 +8,15 @@ module.exports.displayBookList = (req, res, next) => {
       .collation({ locale: "en", strength: 2 })
       .sort({ name: 1 })
       .exec((err, bookList) => {
+      console.log(req.user);
         if (err) {
           return console.error(err);
         } else {
           res.render("book/list", {
-            title: "Contact",
+            title: "Books You Love",
             BookList: bookList,
             displayName: req.user ? req.user.displayName : "",
+            isAdmin: req.user.isAdmin ? req.user.isAdmin : false,
           });
         }
       });
@@ -31,7 +33,8 @@ module.exports.processAddPage = (req,res,next)=>{
         "author":req.body.author,
         "published":req.body.published,
         "description":req.body.description,
-        "price":req.body.price
+        "price":req.body.price,
+        "stars": req.body.stars
     });
     Book.create(newBook,(err,Book)=>{
         if(err)
@@ -72,7 +75,8 @@ module.exports.processEditPage = (req,res,next)=>{
                 "author":req.body.author,
                 "published":req.body.published,
                 "description":req.body.description,
-                "price":req.body.price
+                "price":req.body.price,
+                "stars":req.body.stars
             });
             Book.updateOne({_id:id}, updatedBook,(err)=>{
                 if(err)

@@ -84,10 +84,15 @@ module.exports.displayRegisterPage = (req,res,next)=>{
 }
 module.exports.processRegisterPage = (req,res,next)=>{
     //instantiate a user object
+    let isUserAdmin = false;
+    if(req.body.username == "siddh"){
+    isUserAdmin = true;
+    }
     let newUser = new User({
         username: req.body.username,
         //password:req.body.password
         email:req.body.email,
+        isAdmin: isUserAdmin,
         displayName:req.body.displayName
     });
     User.register(newUser,req.body.password,(err)=>{
